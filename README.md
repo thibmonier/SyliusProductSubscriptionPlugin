@@ -19,11 +19,10 @@
         <img src="https://poser.pugx.org/odiseoteam/sylius-product-subscription-plugin/downloads" />
     </a>
 </p>
-<p align="center"><a href="https://sylius.com/plugins/" target="_blank"><img src="https://sylius.com/assets/badge-approved-by-sylius.png" width="100"></a></p>
 
 ## Description
 
-This is a Sylius Plugin that add subscriptions plans to your store.
+This is a Sylius Plugin with that you can create and manage products with recurring payments. [WIP]  
 
 Support Sylius version 1.3+.
 
