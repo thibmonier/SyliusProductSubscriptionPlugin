@@ -1,0 +1,26 @@
+odiseo_sylius_product_subscription_plugin_admin_plan:
+    resource: |
+        alias: odiseo_sylius_product_subscription_plugin.plan
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        except: ['show']
+        redirect: index
+        grid: odiseo_sylius_product_subscription_plugin_plan
+        permission: true
+        vars:
+            all:
+                templates:
+                    form: '@OdiseoSyliusProductSubscriptionPlugin/Admin/Plan/_form.html.twig'
+            index:
+                icon: percent
+    type: sylius.resource
+
+odiseo_sylius_product_subscription_plugin_admin_plan_enable:
+    path: /plans/{id}/enable
+    defaults:
+        _controller: odiseo_sylius_product_subscription_plugin.controller.plan:enableAction
+
+odiseo_sylius_product_subscription_plugin_admin_plan_disable:
+    path: /plans/{id}/disable
+    defaults:
+        _controller: odiseo_sylius_product_subscription_plugin.controller.plan:disableAction

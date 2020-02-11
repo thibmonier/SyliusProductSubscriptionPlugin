@@ -1,0 +1,74 @@
+sylius_grid:
+    grids:
+        odiseo_sylius_product_subscription_plugin_plan:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%odiseo_sylius_product_subscription_plugin.model.plan.class%"
+            sorting:
+                createdAt: desc
+            fields:
+                name:
+                    type: string
+                    label: sylius.ui.name
+                    sortable: ~
+                type:
+                    type: string
+                    label: sylius.ui.type
+                    sortable: ~
+                price:
+                    type: string
+                    label: sylius.ui.price
+                    sortable: ~
+                enabled:
+                    type: twig
+                    label: sylius.ui.enabled
+                    sortable: ~
+                    options:
+                        template: "@SyliusUi/Grid/Field/enabled.html.twig"
+                createdAt:
+                    type: datetime
+                    label: sylius.ui.creation_date
+                    sortable: ~
+                    options:
+                        format: d-m-Y H:i
+            filters:
+                name:
+                    type: string
+                    label: sylius.ui.name
+                enabled:
+                    type: boolean
+                    label: sylius.ui.enabled
+                createdAt:
+                    type: date
+                    label: sylius.ui.creation_date
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    planEnable:
+                        type: planEnable
+                        label: sylius.ui.enable
+                        options:
+                            link:
+                                route: odiseo_sylius_product_subscription_plugin_admin_plan_enable
+                                parameters:
+                                    id: resource.id
+                                    enabled: resource.enabled
+                    planDisable:
+                        type: planDisable
+                        label: sylius.ui.disable
+                        options:
+                            link:
+                                route: odiseo_sylius_product_subscription_plugin_admin_plan_disable
+                                parameters:
+                                    id: resource.id
+                                    enabled: resource.enabled
+
+    templates:
+        action:
+            planEnable: "@OdiseoSyliusProductSubscriptionPlugin/Admin/Grid/Action/plan_enable.html.twig"
+            planDisable: "@OdiseoSyliusProductSubscriptionPlugin/Admin/Grid/Action/plan_disable.html.twig"

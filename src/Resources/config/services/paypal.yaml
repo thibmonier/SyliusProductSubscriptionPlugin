@@ -1,0 +1,35 @@
+services:
+    odiseo_sylius_product_subscription_plugin.paypal.api.authorization:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Paypal\Api\Authorization
+        arguments:
+            - '%env(PAYPAL_CLIENT_ID)%'
+            - '%env(PAYPAL_CLIENT_SECRET)%'
+            - '%env(PAYPAL_SANDBOX)%'
+
+    odiseo_sylius_product_subscription_plugin.paypal.api.product:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Paypal\Api\Product
+        public: true
+        arguments:
+            - '@odiseo_sylius_product_subscription_plugin.paypal.api.authorization'
+            - '%env(PAYPAL_SANDBOX)%'
+
+    odiseo_sylius_product_subscription_plugin.paypal.api.plan:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Paypal\Api\Plan
+        public: true
+        arguments:
+            - '@odiseo_sylius_product_subscription_plugin.paypal.api.authorization'
+            - '%env(PAYPAL_SANDBOX)%'
+
+    odiseo_sylius_product_subscription_plugin.paypal.api.subscription:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Paypal\Api\Subscription
+        public: true
+        arguments:
+            - '@odiseo_sylius_product_subscription_plugin.paypal.api.authorization'
+            - '%env(PAYPAL_SANDBOX)%'
+
+    odiseo_sylius_product_subscription_plugin.paypal.subscription_manager:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Paypal\SubscriptionManager
+        public: true
+        arguments:
+            - '@odiseo_sylius_product_subscription_plugin.paypal.api.product'
+            - '@odiseo_sylius_product_subscription_plugin.paypal.api.plan'

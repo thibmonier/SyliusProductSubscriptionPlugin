@@ -1,0 +1,21 @@
+services:
+    odiseo_sylius_product_subscription_plugin.event_listener.admin.menu_builder:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Menu\AdminMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
+
+    odiseo_sylius_product_subscription_plugin.event_listener.plan_aware_listener:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Mapping\PlanAwareListener
+        arguments:
+            - '@sylius.resource_registry'
+            - '%odiseo_sylius_product_subscription_plugin.model.plan.class%'
+            - '%sylius.model.product.class%'
+        tags:
+            - { name: doctrine.event_subscriber, connection: default, priority: 99 }
+
+    odiseo_sylius_product_subscription_plugin.event_listener.plan_subscriber:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Doctrine\PlanSubscriber
+        arguments:
+            - '@odiseo_sylius_product_subscription_plugin.paypal.subscription_manager'
+        tags:
+            - { name: doctrine.event_subscriber, connection: default, priority: 99 }

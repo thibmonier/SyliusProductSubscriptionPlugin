@@ -1,0 +1,11 @@
+odiseo_sylius_product_subscription_plugin:
+    ui:
+        plans: Plans
+        edit_plan: Edit plan
+        new_plan: New plan
+    menu:
+        admin:
+            plans: Plans
+    form:
+        product:
+            select_plan: Select plan

@@ -1,0 +1,14 @@
+odiseo_sylius_product_subscription_plugin:
+    plan:
+        name:
+            not_blank: Name cannot be blank.
+            min_length: Name must be at least {{ limit }} characters long.
+            max_length: Name can not be longer than {{ limit }} characters.
+        description:
+            not_blank: Description cannot be blank.
+            min_length: Description must be at least {{ limit }} characters long.
+            max_length: Description can not be longer than {{ limit }} characters.
+        type:
+            not_blank: Type cannot be blank.
+        price:
+            not_blank: Price cannot be blank.

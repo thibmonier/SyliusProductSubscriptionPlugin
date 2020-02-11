@@ -1,0 +1,5 @@
+imports:
+    - { resource: services/event_listener.yaml }
+    - { resource: services/form.yaml }
+    - { resource: services/paypal.yaml }
+    - { resource: services/payum.yaml }

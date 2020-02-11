@@ -1,0 +1,20 @@
+services:
+    odiseo_sylius_product_subscription_plugin.payum_gateway_factory.paypal_subscription:
+        class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
+        arguments: [Odiseo\SyliusProductSubscriptionPlugin\Payum\PaypalSubscription\PaypalSubscriptionGatewayFactory]
+        tags:
+            - { name: payum.gateway_factory_builder, factory: paypal_subscription }
+
+    odiseo_sylius_product_subscription_plugin.payum_action.paypal_subscription.capture:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Payum\PaypalSubscription\Action\CaptureAction
+        public: true
+        arguments: ['@odiseo_sylius_product_subscription_plugin.paypal.api.subscription']
+        tags:
+            - { name: payum.action, factory: paypal_subscription, alias: payum.action.capture }
+
+    odiseo_sylius_product_subscription_plugin.payum_action.paypal_subscription.status:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Payum\PaypalSubscription\Action\StatusAction
+        public: true
+        arguments: ['@odiseo_sylius_product_subscription_plugin.paypal.api.subscription']
+        tags:
+            - { name: payum.action, factory: paypal_subscription, alias: payum.action.status }

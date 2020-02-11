@@ -1,0 +1,30 @@
+Odiseo\SyliusProductSubscriptionPlugin\Entity\Plan:
+    properties:
+        name:
+            - NotBlank:
+                message: 'odiseo_sylius_product_subscription_plugin.plan.name.not_blank'
+                groups: ['odiseo']
+            - Length:
+                min: 2
+                max: 250
+                minMessage: 'odiseo_sylius_product_subscription_plugin.plan.name.min_length'
+                maxMessage: 'odiseo_sylius_product_subscription_plugin.plan.name.max_length'
+                groups: ['odiseo']
+        description:
+            - NotBlank:
+                message: 'odiseo_sylius_product_subscription_plugin.plan.description.not_blank'
+                groups: ['odiseo']
+            - Length:
+                min: 2
+                max: 250
+                minMessage: 'odiseo_sylius_product_subscription_plugin.plan.description.min_length'
+                maxMessage: 'odiseo_sylius_product_subscription_plugin.plan.description.max_length'
+                groups: ['odiseo']
+        type:
+            - NotBlank:
+                message: 'odiseo_sylius_product_subscription_plugin.plan.type.not_blank'
+                groups: ['odiseo']
+        price:
+            - NotBlank:
+                message: 'odiseo_sylius_product_subscription_plugin.plan.price.not_blank'
+                groups: ['odiseo']

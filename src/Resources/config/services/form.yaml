@@ -1,0 +1,26 @@
+services:
+    odiseo_sylius_product_subscription_plugin.form.extension.type.product:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Form\Extension\ProductTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType }
+
+    odiseo_sylius_product_subscription_plugin.form.type.plan_choice:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Form\Type\PlanChoiceType
+        arguments:
+            - '@odiseo_sylius_product_subscription_plugin.repository.plan'
+        tags:
+            - { name: form.type , alias: odiseo_sylius_plan_choice }
+
+    odiseo_sylius_product_subscription_plugin.form.type.plan:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Form\Type\PlanType
+        arguments:
+            - '%odiseo_sylius_product_subscription_plugin.model.plan.class%'
+            - ['odiseo']
+        tags:
+            - { name: form.type, alias: odiseo_sylius_plan }
+
+    odiseo_sylius_product_subscription_plugin.form.type.gateway_configuration.paypal_subscription:
+        class: Odiseo\SyliusProductSubscriptionPlugin\Form\Type\PaypalSubscriptionGatewayConfigurationType
+        tags:
+            - { name: sylius.gateway_configuration_type, type: paypal_subscription, label: "Paypal Subscription" }
+            - { name: form.type }

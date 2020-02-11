@@ -1,0 +1,2 @@
+odiseo_sylius_product_subscription_plugin_admin_plan:
+    resource: admin/plan.yaml

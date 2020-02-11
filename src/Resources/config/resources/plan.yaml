@@ -1,0 +1,11 @@
+sylius_resource:
+    resources:
+        odiseo_sylius_product_subscription_plugin.plan:
+            driver: doctrine/orm
+            classes:
+                model: Odiseo\SyliusProductSubscriptionPlugin\Entity\Plan
+                interface: Odiseo\SyliusProductSubscriptionPlugin\Entity\PlanInterface
+                form: Odiseo\SyliusProductSubscriptionPlugin\Form\Type\PlanType
+                repository: Odiseo\SyliusProductSubscriptionPlugin\Repository\PlanRepository
+                controller: Odiseo\SyliusProductSubscriptionPlugin\Controller\PlanController
+                factory: Sylius\Component\Resource\Factory\Factory

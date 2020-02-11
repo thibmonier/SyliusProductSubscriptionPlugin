@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Odiseo\SyliusProductSubscriptionPlugin
+        psr4_prefix: Odiseo\SyliusProductSubscriptionPlugin
