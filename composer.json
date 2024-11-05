@@ -10,7 +10,7 @@
     "description": "Vendor plugin for Sylius. Add Vendor (Brand) to your products",
     "license": "MIT",
     "require": {
-        "php": "^7.2",
+        "php": "^8.1",
 
         "sylius/sylius": "^1.3"
     },
